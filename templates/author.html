@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Author</h1>
 <h2>{{authordetail.name}}</h2>
 <h4>{{authordetail.bio}}</h4>
@@ -7,3 +10,13 @@
         <li><a href="/recipe/{{recipe.id}}">{{recipe.title}}</a></li>
     {%endfor%}
 </ul>
+</ul>
+<h3>Favorites: {{ favorites.count }}</h3>
+<ul>
+    {% for fav in favorites %}
+    <li>
+        <a href="/recipe/{{ fav.id }}">{{ fav.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
